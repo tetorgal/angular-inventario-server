@@ -4,3 +4,4 @@ const Role = Object.freeze({
     EMPLOYEE: "empleado", 
 }); 
 
+export default Role;

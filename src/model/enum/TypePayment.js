@@ -4,3 +4,4 @@ const TypePayment = Object.freeze({
  
 }); 
 
+export default TypePayment;

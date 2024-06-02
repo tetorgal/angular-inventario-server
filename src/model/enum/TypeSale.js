@@ -5,3 +5,5 @@ const TypeSale = Object.freeze({
  
 }); 
 
+export default TypeSale;
+

@@ -4,9 +4,10 @@ import Address from "./addressModel";
 const saleSchema = new mongoose.Schema({
     id: { type: String, required: true, unique: true },
     idClient: { type: String, required: true},
-    status:{type: TypeSale, required:true},
+    status:{type: String, required:true,  enum: Object.values(TypeSale)},
     idUser:{ type: String, required: true},
-    typePayment:{type: TypePayment},
+    typePayment:{type: String,
+        enum: Object.values(TypePayment),},
     total:{type: number},
     creationDate:{type:Date},
   
