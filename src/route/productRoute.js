@@ -73,18 +73,9 @@ router.delete('/product/:id', deleteProduct);
     *  get:
     *    summary: Update a product
     *    tags: [Products]
-    *    requestBody:
-    *       content:
-    *          application/json:
-    *            schema:
-    *              $ref: '#/definitions/UpdateProduct'
     *    responses:
     *      '200':
     *        description: A successful response
-    *        content:
-    *          application/json:
-    *            schema:
-    *              $ref: '#/definitions/Product'
     */ 
 router.route('/product').get(getProduct);
 
@@ -105,10 +96,10 @@ router.route('/product').get(getProduct);
  *         type: string
  *         example: Bebida con gas
  *       price: 
- *         type: Number
+ *         type: decimal
  *         example: 5,50
  *       amount: 
- *         type: Number
+ *         type: integer
  *         example: 5
  */
 
@@ -124,10 +115,10 @@ router.route('/product').get(getProduct);
  *         type: string
  *         example: Bebida con gas
  *       price: 
- *         type: Number
+ *         type: decimal
  *         example: 5,50
  *       amount: 
- *         type: Number
+ *         type: integer
  *         example: 5
  */
 
@@ -148,9 +139,9 @@ router.route('/product').get(getProduct);
  *       description: 
  *         type: string
  *       price: 
- *         type: Number
+ *         type: decimal
  *       amount: 
- *         type: Number
+ *         type: integer
  *       creationDate:
  *         type: Date
  *       deleteDate:

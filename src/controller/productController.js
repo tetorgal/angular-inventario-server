@@ -1,14 +1,17 @@
 import Product from '../model/productModel.js';
+import mongoose from "mongoose";
 
 export const createProduct = async (req, res) => {
     try {
         const { code, name, category, description,price,amount } = req.body;
+        
         const product = new Product({ 
+            id:1,
             code, 
             name,
              category, 
              description, 
-             price,
+             price: parseFloat(price),
              amount,
             status:true,
         creationDate: new Date()
@@ -16,6 +19,7 @@ export const createProduct = async (req, res) => {
         await product.save();
         res.status(201).send(product);
     } catch (error) {
+        console.log(error)
         res.status(400).send(error);
     }
 };
@@ -28,14 +32,16 @@ export const updateProduct = async (req, res) => {
         if (!product) {
             return res.status(404).send("Producto no encontrado");
         }
-
+console.log(product)
         product.name=name;
-        product.description=descripton;
-        product.price=price;
+        product.description=description;
+        product.price= parseFloat(price);
         product.amount=+amount;
-        await product.save();
-        res.status(201).send(product);
+
+        await Product.save(product);
+                res.status(201).send(product);
     } catch (error) {
+        console.log(error)
         res.status(400).send(error);
     }
 }
