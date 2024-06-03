@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import Address from "./addressModel";
 
 const clientSchema = new mongoose.Schema({
-    id: { type: String, required: true, unique: true },
+    id: { type: String },
     name: { type: String, required: true},
     lastName: { type: String, required: true},
     phone: { type: String, required: true },

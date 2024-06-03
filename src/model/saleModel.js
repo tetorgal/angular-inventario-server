@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import Address from "./addressModel";
 
 const saleSchema = new mongoose.Schema({
-    id: { type: String, required: true, unique: true },
+    id: { type: String},
     idClient: { type: String, required: true},
     status:{type: String, required:true,  enum: Object.values(TypeSale)},
     idUser:{ type: String, required: true},
