@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const MONGO_URL = 'mongodb+srv://examen5:MetYrUb6khvRHVJ4@cluster0.15hnfr1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const MONGO_URL = 'mongodb://localhost:27017/project';
 
 export const connectDB = async () =>{
     try{

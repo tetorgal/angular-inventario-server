@@ -109,6 +109,8 @@ router.route('/product').get(getProduct);
  * definitions:
  *   UpdateProduct:
  *     properties:
+ *       id:
+ *         type: string
  *       code:
  *         type: string
  *       description: 

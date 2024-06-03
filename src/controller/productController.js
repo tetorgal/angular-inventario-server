@@ -6,7 +6,7 @@ export const createProduct = async (req, res) => {
         const { code, name, category, description,price,amount } = req.body;
         
         const product = new Product({ 
-            id:1,
+            
             code, 
             name,
              category, 
@@ -16,6 +16,7 @@ export const createProduct = async (req, res) => {
             status:true,
         creationDate: new Date()
     });
+
         await product.save();
         res.status(201).send(product);
     } catch (error) {
@@ -26,8 +27,8 @@ export const createProduct = async (req, res) => {
 
 export const updateProduct = async (req, res) => {
     try {
-        const { code, name, description,price,amount } = req.body;
-        const product = await Product.find({code:code});
+        const { id,code, name, description,price,amount } = req.body;
+        const product = await Product.findById(id);
 
         if (!product) {
             return res.status(404).send("Producto no encontrado");
@@ -36,9 +37,9 @@ console.log(product)
         product.name=name;
         product.description=description;
         product.price= parseFloat(price);
-        product.amount=+amount;
+        product.amount=product.amount+amount;
 
-        await Product.save(product);
+        await product.save()
                 res.status(201).send(product);
     } catch (error) {
         console.log(error)
