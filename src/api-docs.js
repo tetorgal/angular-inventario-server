@@ -8,7 +8,10 @@ const swaggerOptions={
             version:"1.0.0",
             title:"Docu API",
             description:"API Documentation for use",
-            servers:["http://localhost","https://examen-production-04fa.up.railway.app"]
+            servers:["http://localhost","https://examen-production-04fa.up.railway.app"],
+            schemes:
+            - "https"
+            - "http"
         }
     },
     basePath:"/",
