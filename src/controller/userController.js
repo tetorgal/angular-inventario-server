@@ -1,4 +1,5 @@
-import User from '../model/userModel.js';
+import User from '../model/userModel.js'
+import bcyptjs from 'bcryptjs'
 
 export const createUser = async (req, res) => {
     try {
@@ -18,6 +19,7 @@ export const createUser = async (req, res) => {
         await user.save();
         res.status(201).send(user);
     } catch (error) {
+        console.log(error)
         res.status(400).send(error);
     }
 };
@@ -44,6 +46,7 @@ export const login=async (req, res)=>{
       res.cookie('token',token)
         res.json({message:"User Login."}).send('token',token);
     }catch (error){
+        console.log(error)
        res.send({message:error.message});
     }
  
@@ -86,8 +89,8 @@ export const deleteUser = async (req, res) => {
 
         user.status=false;
         user.deleteDate=new Date();
-        await product.save();
-        res.status(201).send(product);
+        await user.save();
+        res.status(201).send(user);
     } catch (error) {
         res.status(400).send(error);
     }
